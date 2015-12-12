@@ -34,3 +34,14 @@ test('User can login with valid credentials', function(assert) {
     assert.equal(currentURL(), '/');
   });
 });
+
+test('User cannot login with invalid credentials', function(assert) {
+  visit('/login');
+  fillIn('[name=email]', 'invalid@example.com');
+  fillIn('[name=password]', 'password1234');
+  click('.form-submit');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/login');
+  });
+});
