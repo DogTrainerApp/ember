@@ -6,7 +6,7 @@ moduleForComponent('simple-form', 'Integration | Component | simple form', {
 });
 
 test('it renders', function(assert) {
-  
+
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });" + EOL + EOL +
 
@@ -22,4 +22,22 @@ test('it renders', function(assert) {
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');
+});
+
+test('it can capture user input', function(assert) {
+  this.render(hbs`
+    {{#simple-form onsubmit="captureSubmit" as |formValues|}}
+      {{input value=formValues.name}}
+
+      <button class="form-submit">Submit</button>
+    {{/simple-form}}
+  `);
+
+  this.on('captureSubmit', function(formValues) {
+    assert.equal(formValues.name, 'Tomster');
+  });
+
+  this.$('input').val('Tomster');
+  this.$('input').change();
+  this.$('button').click();
 });
