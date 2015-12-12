@@ -23,3 +23,14 @@ test('User can see the login form', function(assert) {
     assert.equal(inputs.eq(1).attr('name'), 'password');
   });
 });
+
+test('User can login with valid credentials', function(assert) {
+  visit('/login');
+  fillIn('[name=email]', 'valid@example.com');
+  fillIn('[name=password]', 'password1234');
+  click('.form-submit');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/');
+  });
+});
