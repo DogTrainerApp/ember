@@ -25,6 +25,6 @@ test('User can see list of rounds', function(assert) {
     // let firstRoundPrecentange = find('.round-list-item__precentages').eq(0);
 
     assert.equal(rounds.length, 3);
-    assert.ok(firstRoundDate.text().indexOf('Nov 22, 2015') > -1);
+    assert.includes(firstRoundDate.text(), 'Nov 22, 2015');
   });
 });
