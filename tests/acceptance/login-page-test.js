@@ -11,6 +11,15 @@ test('User can visit login page', function(assert) {
   });
 });
 
+test('Users are redirected if logged in can visit login page', function(assert) {
+  authenticate();
+  visit('/login');
+
+  andThen(function() {
+    assert.equal(currentURL(), '/');
+  });
+});
+
 test('User can see the login form', function(assert) {
   visit('/login');
 
