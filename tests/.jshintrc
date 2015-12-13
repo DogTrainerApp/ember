@@ -1,5 +1,6 @@
 {
   "predef": [
+    "authenticate",
     "server",
     "document",
     "window",
