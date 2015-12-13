@@ -21,10 +21,12 @@ test('User can see list of rounds', function(assert) {
   andThen(function() {
     let rounds = find('.round-list-item');
     let firstRoundDate = findWithAssert('.round-list-item__date').eq(0);
-    // let firstRoundTime = find('.round-list-item__times').eq(0);
-    // let firstRoundPrecentange = find('.round-list-item__precentages').eq(0);
+    let firstRoundTime = findWithAssert('.round-list-item__time').eq(0);
+    let firstRoundPrecentange = findWithAssert('.round-list-item__precentage').eq(0);
 
     assert.equal(rounds.length, 3);
     assert.includes(firstRoundDate.text(), 'Nov 22, 2015');
+    assert.includes(firstRoundTime.text(), '10mins');
+    assert.includes(firstRoundPrecentange.text(), '75%');
   });
 });
