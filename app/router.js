@@ -10,6 +10,10 @@ Router.map(function() {
 
   this.route('dashboard', {
     path: '/'
+  }, function() {
+    this.route('rounds', {
+      path: '/'
+    });
   });
 });
 
