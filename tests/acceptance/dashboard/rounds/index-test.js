@@ -11,7 +11,7 @@ test('User can visit rounds index when authenticated', function(assert) {
   visit('/');
 
   andThen(function() {
-    assert.equal(currentRouteName(), 'dashboard.rounds');
+    assert.equal(currentRouteName(), 'dashboard.rounds.index');
   });
 });
 
