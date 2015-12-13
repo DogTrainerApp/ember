@@ -23,4 +23,6 @@ export default function() {
       return new Mirage.Response(401, {}, body);
     }
   });
+
+  this.get('/rounds');
 }
